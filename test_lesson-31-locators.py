@@ -13,14 +13,18 @@
 # - page.get_by_title("username").fill("Anton")
 # page.get_by_role(role, **kwargs)
 # - page.get_by_role("button", name="Submit").click()
+#
+
+from playwright.sync_api import Playwright, sync_playwright, expect
+
+# == 3.1 ====
 # def test_loc(page):
-#     page.goto('https://textinput.antonzimaiev.repl.co/?')
+#     page.goto('https://zimaev.github.io/text_input/')
 #     page.get_by_label("Email address").fill("qa@example.com")
 #     page.get_by_title("username").fill("Anton")
 #     page.get_by_placeholder('password').fill("secret")
-#     page.get_by_role('checkbox').click()
-
-
+#     page.get_by_role('checkbox').click(delay=2000)
+#
 # = Locator locator.or_
 # def test_or(page):
 #     selector = page.locator("input").or_(page.locator("text"))
@@ -28,41 +32,37 @@
 
 # = Locator locator.and_
 # def test_locator_and(page):
-#     page.goto("https://locatorand.antonzimaiev.repl.co/")
+#     page.goto("https://zimaev.github.io/locatorand/")
 #     selector = page.get_by_role("button", name="Sing up").and_(page.get_by_title("Sing up today"))
 #     selector.click()
 
 
 # def test_nav(page):
-#     page.goto('https://navbar.antonzimaiev.repl.co/#')
-#     # page.locator("#navbarNavDropdown >> li:has-text('Company')").click()
-#     # nav_bar = page.locator('div#navbarNavDropdown')
-#     # nav_bar.locator("li:has-text('Products')").click()
-#     # page.locator("li").filter(has_text='Company').click()
-#     page.locator('li').filter(has=page.locator('.dropdown-toggle')).click()
+#    page.goto('https://zimaev.github.io/navbar/')
+#    page.locator("#navbarNavDropdown >> li:has-text('Company')").click()
+#
+#    nav_bar = page.locator('div#navbarNavDropdown')
+#    nav_bar.locator("li:has-text('Products')").click()
+#
+#    page.locator("li").filter(has_text='Company').click(delay=3000)
+#
+#    page.locator('li').filter(has=page.locator('.dropdown-toggle')).click()
+#
+#     page.goto("https://zimaev.github.io/filter/")
+#     row_locator = page.locator('tr')
+#     row_locator.filter(has_text='helicopter').click()
+#     row_locator.filter(has=page.get_by_role("button", name="Edit")).click()
 
 # == locator.count(), locator.first, locator.last или locator.nth(index)
 
 # def test_checkbox_cycle(page):
-#     page.goto('https://checks-radios.antonzimaiev.repl.co/')
-#     # checkbox = page.locator("input")
-#     # for i in range(checkbox.count()):
-#     #     checkbox.nth(3).click()
+#     page.goto('https://zimaev.github.io/checks-radios/')
+#     checkbox = page.locator("input")
+#     for i in range(checkbox.count()):
+#         checkbox.nth(i).click()
+#
 #     checkboxes = page.locator("input")
 #     for checkbox in checkboxes.all():
 #         checkbox.check()
 
-# == locator.fill(value, **kwargs)
-# def test_login(page):
-#     page.goto('https://exaltedplushadware.antonzimaiev.repl.co/?')
-#     page.locator("#exampleInputEmail1").fill("admin@example.com")
-
-# = locator.type(text, **kwargs)
-# def test_login(page):
-#     page.goto('https://exaltedplushadware.antonzimaiev.repl.co/?')
-#     page.locator("#exampleInputEmail1").type("admin@example.com")
-
-# = locator.press(key, **kwargs)
-# Keys:  (F1 - F12, Backspace, Tab, Delete, Escape, ArrowDown,
-# End, Enter, Home, Insert, PageDown, PageUp, ArrowRight, ArrowUp..
 
